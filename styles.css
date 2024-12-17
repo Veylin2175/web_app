@@ -1,0 +1,478 @@
+/* Фон */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url('images/BG.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+/* Стили для логотипа */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 120px;
+    height: 120px;
+}
+
+/* Стили для заголовка */
+.title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
+    font-weight: 600;
+    letter-spacing: 9%;
+    color: #29536F;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Общие стили для полей ввода */
+.input-field {
+    width: 260px;
+    height: 27px;
+    background-color: #29536F;
+    border: none;
+    border-radius: 10px;
+    padding-left: 20px; /* Отступ слева */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: #C3ECFF; /* Изменили цвет текста на C3ECFF */
+    text-align: left; /* Выравнивание текста по левому краю */
+    outline: none; /* Убираем обводку при фокусе */
+    position: absolute;
+}
+
+/* Поле Логин */
+.login {
+    top: 20px;
+    right: 20px;
+}
+
+/* Поле Пароль */
+.password {
+    top: 67px;
+    right: 20px;
+}
+
+/* Контейнер для текста "Регистрация" и "Вход" */
+.auth-container {
+    position: absolute;
+    top: 114px; /* Смещение на 20px вниз */
+    width: 260px;
+    left: calc(100% - 300px); /* Смещение на 20px влево */
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Текстовые стили для "Регистрация" и "Вход" */
+.register-text, .login-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #29536F;
+    cursor: pointer;
+}
+
+.register-text {
+    text-align: left;
+}
+
+.login-text {
+    text-align: right;
+    transform: translateY(0px); /* Смещение на 20px вниз */
+}
+
+/* Стиль для сообщения о входе */
+.login-message {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #29536F;
+    position: absolute;
+    top: 20px; /* Смещение от верха на 20px */
+    right: 20px; /* Смещение от правого края на 20px */
+    transform: none; /* Убираем центрирование */
+}
+
+
+/* Стили для прямоугольника */
+.navbar {
+    position: absolute;
+    top: 160px; /* Расположение на 160px от верха */
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #29536F;
+    display: flex;
+    justify-content: space-evenly; /* Равномерное распределение элементов */
+    align-items: center;
+}
+
+/* Стили для гиперссылок */
+.navbar a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 9%;
+    color: #C3ECFF;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Прямоугольник, прилегающий к левой стенке */
+.left-rectangle {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: 200px;
+    height: 1637px;
+    background-color: #C3ECFF;
+}
+
+/* Прямоугольник, прилегающий к правой стенке */
+.right-rectangle {
+    position: absolute;
+    top: 200px;
+    right: 0;
+    width: 200px;
+    height: 1637px;
+    background-color: #C3ECFF;
+}
+
+/* Общие стили для баннеров */
+.banner {
+    position: absolute;
+    width: 160px;
+    height: 50px;
+}
+
+/* Первый баннер */
+.banner-1 {
+    top: 220px;
+    left: 20px;
+}
+
+/* Второй баннер */
+.banner-2 {
+    top: 290px;
+    left: 20px;
+}
+
+/* Третий баннер */
+.banner-3 {
+    top: 360px;
+    left: 20px;
+}
+
+/* Четвертый баннер */
+.banner-4 {
+    top: 430px;
+    left: 20px;
+}
+
+.banner:hover {
+    background-color: #122e3c;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: scale(1.01);
+    border-radius: 5px;
+}
+
+.banner:active {
+    background-color: #12303E;
+    transform: scale(1.0);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Общие стили для новых баннеров */
+.svg-banner {
+    position: absolute;
+}
+
+/* Первый баннер (mincult.svg) */
+.mincult-banner {
+    top: 220px;
+    right: 13px;
+    width: 174px;
+    height: 99px;
+}
+
+/* Второй баннер (culture.svg) */
+.culture-banner {
+    top: 340px;
+    right: 13px;
+    width: 174px;
+    height: 42px;
+}
+
+/* Третий баннер (dep.svg) */
+.dep-banner {
+    top: 398px;
+    right: 13px;
+    width: 174px;
+    height: 125px;
+}
+
+/* Стиль для текста "ТЕАТРАЛЬНАЯ СТУДИЯ “В СОЗВЕЗДИЯХ”" */
+.theater-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 5%;
+    color: #29536F;
+    position: absolute;
+    top: 203px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+/* Стиль для текста с описанием театра-студии */
+.description-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 5%;
+    color: #29536F;
+    position: absolute;
+    top: 260px;
+    left: 240px;
+    max-width: 1040px; /* Ограничение ширины текста для лучшей читаемости */
+    line-height: 1.5; /* Увеличение межстрочного интервала для удобства чтения */
+    text-align: justify;
+}
+
+.group-photo {
+    position: absolute;
+    top: 444px;  /* Расположение сверху */
+    left: 300px; /* Расположение слева */
+    width: 920px;
+    height: 581px;
+}
+
+.events-title {
+    position: absolute;
+    top: 1025px;  /* Расположение сверху */
+    left: 50%;
+    transform: translateX(-50%); /* Центрирование по горизонтали */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 600; /* Semibold */
+    color: #29536F;
+    letter-spacing: 5%;
+    text-align: center;
+}
+
+/* Стили для таблицы мероприятий */
+.events-table {
+    position: absolute;
+    top: 1092px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-collapse: collapse;
+    width: 920px; /* Общая ширина таблицы (320px + 600px) */
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.events-table th, .events-table td {
+    border: 1px solid #29536F; /* Границы таблицы */
+    color: #29536F;
+    height: 50px; /* Высота строки */
+    padding: 0 10px; /* Для небольшого отступа */
+}
+
+.events-table th {
+    font-weight: 600; /* Semibold */
+    font-size: 20px;
+}
+
+.events-table td {
+    font-weight: 400; /* Regular */
+    font-size: 20px;
+    vertical-align: middle; /* Выравнивание по вертикали */
+}
+
+.events-table td:nth-child(1), .events-table th:nth-child(1) {
+    width: 320px; /* Ширина первого столбца */
+}
+
+.events-table td:nth-child(2), .events-table th:nth-child(2) {
+    width: 600px; /* Ширина второго столбца */
+}
+
+/* Заголовок "НАШИ ПРЕИМУЩЕСТВА" */
+.text-benefits {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    letter-spacing: 5%;
+    color: #29536F;
+    position: absolute;
+    top: 1392px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+/* Список преимуществ */
+.benefits-list {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #29536F;
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 20px auto;
+    position: absolute;
+    top: 1442px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 600px;
+    text-align: left;
+}
+
+/* Footer Text: Клуб "Атом" 2021-2024 */
+.footer-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #29536F;
+    position: absolute;
+    top: 1785px;
+    left: 200px;
+}
+
+.form-cont {
+    position: absolute;
+    top: 1430px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 620px;
+    height: 320px;
+    background-color: #29536F;
+    border-radius: 40px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.form-tit {
+    color: #C3ECFF;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.inputfield {
+    width: 380px;
+    height: 40px;
+    margin: 30px auto 0;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding-left: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #29536F;
+    border: none;
+    outline: none;
+}
+
+.inputfield::placeholder {
+    color: #29536F;
+    opacity: 0.7;
+}
+
+.submitbutton {
+    width: 240px;
+    height: 60px;
+    margin: 30px auto 0;
+    background-color: #C3ECFF;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #29536F;
+    cursor: pointer;
+}
+
+.submitbutton:hover {
+    background-color: #B0D6E9;
+}
+
+.submitbutton:active {
+    background-color: #A0C8DA;
+}
+
+#welcome-message {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #29536F;
+}
+
+/* Общий стиль слайдера */
+.slider-container {
+    position: relative;
+    width: 80%;
+    margin: 250px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Стили для области слайдов */
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Стили для каждого слайда */
+.slide {
+    min-width: 60%;
+    max-width: 400px; /* Устанавливаем фиксированную ширину */
+    max-height: 400px; /* Оставляем высоту неизменной */
+    margin: 0 auto; /* Центрируем изображение */
+    display: none;
+    object-fit: cover; /* Подгоняем изображение по контейнеру */
+    border-radius: 10px;
+}
+
+.slide.active {
+    display: block;
+}
+
+
+
+/* Кнопки управления */
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.slider-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slider-button.prev {
+    left: 250px;
+}
+
+.slider-button.next {
+    right: 250px;
+}

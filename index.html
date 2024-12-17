@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>В Созвездиях</title>
+    <link rel="icon" type="image/svg" href="images/Logo.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <img src="images/Logo.svg" alt="Логотип" class="logo">
+
+    <h1 class="title">В СОЗВЕЗДИЯХ</h1>
+
+    <div class="input-container" id="login-container">
+        <input type="text" id="mail" placeholder="Почта" class="input-field login" pattern="[A-Za-z0-9!@#$%^&*]+" title="Разрешены только латинские буквы, цифры и спецсимволы">
+        <input type="password" id="pass" placeholder="Пароль" class="input-field password" pattern="[A-Za-z0-9!@#$%^&*]+" title="Разрешены только латинские буквы, цифры и спецсимволы">
+    </div>
+
+    <div class="auth-container" id="auth-container">
+        <span class="register-text" onclick="register()">Регистрация</span>
+        <span class="login-text" onclick="login()">Вход</span>
+    </div>
+
+    <div id="welcome-message" style="display: none;"></div>
+
+    <script>
+        function register() {
+            window.location.href = "reg.html";
+        }
+
+        function login() {
+            const email = document.getElementById('mail').value;
+            const password = document.getElementById('pass').value;
+
+            if (!email || !password) {
+                alert('Пожалуйста, заполните все поля');
+                return;
+            }
+
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ mail: email, password }),
+            })
+                .then(async response => {
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        // Убираем поле для входа и выводим приветственное сообщение
+                        document.getElementById('login-container').style.display = 'none';
+                        document.getElementById('auth-container').style.display = 'none';
+                        document.getElementById('welcome-message').textContent = `Выполнен вход, ${email || 'Пользователь'}`;
+                        document.getElementById('welcome-message').style.display = 'block';
+                    } else {
+                        alert(data.error || 'Ошибка при входе');
+                    }
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                    alert('Произошла ошибка при соединении с сервером');
+                });
+        }
+    </script>
+
+
+
+    <div class="login-message"></div>
+    
+    <div class="navbar">
+        <a href="https://clubatom.ru/constellations" target="_blank">Клуб "Атом"</a>
+        <a href="https://kulturaszao.ru/dkberendey" target="_blank">ДК "Берендей"</a>
+        <a href="https://www.culture.ru/" target="_blank">Культура.рф</a>
+    </div>
+    <div class="left-rectangle"></div>
+    <div class="right-rectangle"></div>
+    <a href="about_us.html">
+        <img src="images/banner1.svg" alt="Баннер 1" class="banner banner-1">
+    </a>
+    <a href="announcements.html">
+        <img src="images/banner2.svg" alt="Баннер 2" class="banner banner-2">
+    </a>
+    <a href="content.html">
+        <img src="images/banner3.svg" alt="Баннер 3" class="banner banner-3">
+    </a>
+    <a href="photos.html">
+        <img src="images/banner4.svg" alt="Баннер 4" class="banner banner-4">
+    </a>
+    <a href="https://culture.gov.ru/" target="_blank">
+        <img src="images/mincult.svg" alt="Минкульт" class="svg-banner mincult-banner">
+    </a>
+    <a href="https://www.culture.ru/" target="_blank">
+        <img src="images/culture.svg" alt="Культура" class="svg-banner culture-banner">
+    </a>
+    <a href="https://www.mos.ru/kultura/" target="_blank">
+        <img src="images/dep.svg" alt="Департамент" class="svg-banner dep-banner">
+    </a>
+    <h2 class="theater-text">ТЕАТРАЛЬНАЯ СТУДИЯ “В СОЗВЕЗДИЯХ”</h2>
+    <p class="description-text">
+        Театр-студия "В Созвездиях". Работаем на энтузиазме, на добровольной основе (без продюсирования) и в просветительских целях. Ставим спектакли и организуем творческие вечера бесплатно — в библиотеках и на других открытых площадках. Начинаем репетиции с 04.04.2021. Нас можно найти в клубе Атом <a href="https://vk.com/klubatom" target="_blank">https://vk.com/klubatom</a> Маршала Тухачевского дом 20, стр.2, Москва каждое воскресенье с 12-00 до 15-00.
+    </p>
+    <img src="images/group_photo.png" alt="Групповое фото" class="group-photo">
+    <h2 class="events-title">НАШИ МЕРОПРИЯТИЯ НА 2024 ГОД:</h2>
+    
+<table class="events-table">
+    <tr>
+        <th>Дата мероприятия</th>
+        <th>Название мероприятия</th>
+    </tr>
+    <tr>
+        <td>25.02.2024</td>
+        <td>«Вас вызывает Таймыр» - спектакль по мотивам одноименной пьессы А. Галича</td>
+    </tr>
+    <tr>
+        <td>28.04.2024</td>
+        <td>«Серенада о любви» - творческий вечер поэта Ивана Ильина</td>
+    </tr>
+    <tr>
+        <td>30.06.2024</td>
+        <td>Музыкальная комедия «Клоп» по мотивам одноименной пьессы В. Маяковского</td>
+    </tr>
+    <tr>
+        <td>27.10.2024</td>
+        <td>«Солнечные люди» - литературно-музыкальный концерт</td>
+    </tr>
+    <tr>
+        <td>22.12.2024</td>
+        <td>«Ханума» - музыкальный спектакль по мотивам одноименной пьессы А. Цагарели</td>
+    </tr>
+</table>
+
+<div class="form-cont">
+    <div class="form-tit">Оставьте заявку</div>
+
+    <form id="application-form">
+        <input type="text" class="inputfield" id="name" placeholder="Имя" required style="margin-top: 20px;">
+        <input type="email" class="inputfield" id="email" placeholder="Почта" required style="margin-top: 20px;">
+        <button type="submit" class="submitbutton">Отправить заявку!</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById("application-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        alert("Заявка успешно отправлена!");
+    });
+</script>
+
+
+    <p class="footer-text">
+        Клуб “Атом” 2021-2024. Все права защищены.
+    </p>
+</body>
+</html>

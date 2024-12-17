@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фото | В Созвездиях</title>
+    <link rel="icon" type="image/svg" href="images/Logo.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <img src="images/Logo.svg" alt="Логотип" class="logo">
+
+    <h1 class="title">ФОТО</h1>
+
+    <div class="navbar">
+        <a href="https://clubatom.ru/constellations">Клуб "Атом"</a>
+        <a href="https://kulturaszao.ru/dkberendey">ДК "Берендей"</a>
+        <a href="https://www.culture.ru/">Культура.рф</a>
+    </div>
+    <div class="left-rectangle"></div>
+    <div class="right-rectangle"></div>
+    <a href="index.html">
+        <img src="images/back.svg" alt="Баннер 1" class="banner banner-1">
+    </a>
+    <a href="https://culture.gov.ru/" target="_blank">
+        <img src="images/mincult.svg" alt="Минкульт" class="svg-banner mincult-banner">
+    </a>
+    <a href="https://www.culture.ru/" target="_blank">
+        <img src="images/culture.svg" alt="Культура" class="svg-banner culture-banner">
+    </a>
+    <a href="https://www.mos.ru/kultura/" target="_blank">
+        <img src="images/dep.svg" alt="Департамент" class="svg-banner dep-banner">
+    </a>
+
+    
+<p class="footer-text">Клуб “Атом” 2021-2024. Все права защищены.</p>
+
+    <div class="slider-container">
+        <button class="slider-button prev" onclick="prevSlide()">&#10094;</button>
+        <div class="slider">
+            <img src="photos/1.jpg" alt="Фото 1" class="slide active">
+            <img src="photos/2.jpg" alt="Фото 2" class="slide">
+            <img src="photos/3.jpg" alt="Фото 3" class="slide">
+            <img src="photos/4.jpg" alt="Фото 4" class="slide">
+            <img src="photos/5.jpg" alt="Фото 5" class="slide">
+            <img src="photos/6.jpg" alt="Фото 6" class="slide">
+            <img src="photos/7.jpg" alt="Фото 7" class="slide">
+            <img src="photos/8.jpg" alt="Фото 8" class="slide">
+        </div>
+        <button class="slider-button next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Показываем первый слайд при загрузке
+        showSlide(currentSlide);
+    </script>
+
+</body>
+</html>

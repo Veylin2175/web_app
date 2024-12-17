@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация | В Созвездиях</title>
+    <link rel="icon" type="image/svg" href="images/Logo.svg">
+    <link rel="stylesheet" href="Announce.css">
+
+    <style>
+        .registration-box {
+            position: absolute;
+            top: 230px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 620px;
+            height: 780px;
+            background-color: #29536F;
+            border-radius: 40px;
+            overflow: hidden;
+            padding: 30px;
+        }
+
+        .registration-title {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 600;
+            color: #C3ECFF;
+            text-align: center;
+        }
+
+        .input-field {
+            width: 480px;
+            height: 60px;
+            margin: 0 auto;
+            display: block;
+            background-color: #FFFFFF;
+            border: none;
+            border-radius: 20px;
+            padding-left: 30px;
+            font-size: 22px;
+            font-family: 'Montserrat', sans-serif;
+            color: #29536F;
+        }
+
+        .input-field::placeholder {
+            color: #29536F;
+            font-weight: 500;
+        }
+
+        .field-lastname { position: absolute; top: 150px; left: 50%; transform: translateX(-50%); }
+        .field-firstname { position: absolute; top: 240px; left: 50%; transform: translateX(-50%); }
+        .field-phone { position: absolute; top: 330px; left: 50%; transform: translateX(-50%); }
+        .field-email { position: absolute; top: 420px; left: 50%; transform: translateX(-50%); }
+        .field-password { position: absolute; top: 510px; left: 50%; transform: translateX(-50%); }
+
+        .register-button {
+            width: 480px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: #C3ECFF;
+            border: none;
+            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: #29536F;
+            cursor: pointer;
+            position: absolute;
+            top: 650px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .register-button:hover {
+            background-color: #A1D7E7;
+        }
+    </style>
+</head>
+<body>
+<img src="images/Logo.svg" alt="Логотип" class="logo">
+
+<h1 class="title">В СОЗВЕЗДИЯХ</h1>
+
+<div class="navbar"></div>
+<div class="left-rectangle"></div>
+<div class="right-rectangle"></div>
+<a href="index.html">
+    <img src="images/back.svg" alt="Баннер 1" class="banner banner-1">
+</a>
+
+<div class="registration-box">
+    <h2 class="registration-title">Регистрация</h2>
+
+    <form id="registration-form">
+        <input type="text" id="lastname" class="input-field field-lastname" placeholder="Фамилия" required>
+        <input type="text" id="firstname" class="input-field field-firstname" placeholder="Имя" required>
+        <input type="tel" id="phone" class="input-field field-phone" placeholder="Номер" required>
+        <input type="email" id="email" class="input-field field-email" placeholder="Почта" required>
+        <input type="password" id="password" class="input-field field-password" placeholder="Пароль" required>
+        <button type="button" class="register-button" onclick="registerUser()">Зарегистрироваться!</button>
+    </form>
+</div>
+
+<script>
+    function registerUser() {
+        const name = document.getElementById('firstname').value;
+        const surname = document.getElementById('lastname').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        if (!name || !surname || !phone || !email || !password) {
+            alert('Пожалуйста, заполните все поля');
+            return;
+        }
+
+        const newReg = { name, surname, phone, mail: email, password };
+
+        fetch('http://localhost:3000/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newReg)
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert('Регистрация прошла успешно!');
+                } else {
+                    alert('Ошибка при регистрации');
+                }
+            })
+            .catch(error => console.error('Ошибка:', error));
+    }
+</script>
+
+</body>
+</html>
